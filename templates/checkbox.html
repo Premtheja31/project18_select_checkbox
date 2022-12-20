@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form method="POST" action="{% url 'display_selected'%}">
+            {% csrf_token %}
+                {% for i in topics %}
+                <label for="topic">{{i.topic_name}}</label>
+                <input type="checkbox" name="topic" value="{{i}}" id="topic">
+                {% endfor %}
+                <br><br>
+                <input type="submit" value="checkbox">
+        </form>
+    </center>
+</body>
+</html>
